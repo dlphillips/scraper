@@ -1,0 +1,34 @@
+{
+  "name": "scraper",
+  "version": "1.0.0",
+  "description": "News scraper with comment ability",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dlphillips/scraper.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "mongodb",
+    "mongoose",
+    "cheerio"
+  ],
+  "author": "Dan Phillips",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dlphillips/scraper/issues"
+  },
+  "homepage": "https://github.com/dlphillips/scraper#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cheerio": "^1.0.0-rc.1",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.11.0",
+    "request": "^2.81.0"
+  }
+}
