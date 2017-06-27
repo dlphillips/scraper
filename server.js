@@ -85,8 +85,8 @@ app.get("/scrape", function(req, res) {
             var result = {};
 
             // Add the text and href of every link, and save them as properties of the result object
-            result.imgLink = $(this).children("figure").children(".bucketwrap").children(".imagewrap").children("a").children("img").attr("src");
             result.title = $(this).children(".story-text").children("a").children("h1").text();
+            result.imgLink = $(this).children("figure").children(".bucketwrap").children(".imagewrap").children("a").children("img").attr("src");
             result.link = $(this).children(".story-text").children("a").attr("href");
             result.teaser = $(this).children(".story-text").children("a").children("p").text();
 

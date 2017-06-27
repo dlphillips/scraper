@@ -14,17 +14,14 @@ var ArticleSchema = new Schema({
   // link is a required string
   link: {
     type: String,
-    unique: true,
     required: true
   },
-    imgLink: {
+  imgLink: {
     type: String,
-    unique: true,
     required: true
   },
   teaser: {
     type: String,
-    unique: true,
     required: true
   },
   // This only saves one note's ObjectId, ref refers to the Note model
