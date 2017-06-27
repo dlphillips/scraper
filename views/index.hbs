@@ -1,0 +1,40 @@
+<main>
+    <!--Main layout-->
+    <div class="container" id="pageBg">
+        <!--Page heading-->
+        <div class="row wow fadeIn" data-wow-delay="0.2s">
+            <div class="col-md-12">
+                <h1 class="h1-responsive">Latest Headlines from NPR
+                </h1>
+            </div>
+        </div>
+            <!--/.Page heading-->
+            <hr> {{#each articles}}
+            <!--First row-->
+            <div class="row wow fadeIn" data-wow-delay="0.2s">
+                <!--Featured image-->
+                <div class="col-lg-4">
+                    <div class="view overlay hm-white-light z-depth-1-half">
+                        <img src="{{imgLink}}">
+                        <div class="mask"></div>
+                    </div>
+                </div>
+                <!--/.Featured image-->
+                <!--Post excerpt-->
+                <div class="col-lg-8">
+                    <h4 class="post-title">{{title}}</h4>
+                    <p>{{teaser}}</p>
+                    <div class="read-more">
+                        <a href="{{link}}" target="_blank" class="btn btn-primary">Read story</a>
+                        <button data-id={{_id}} class="btn btn-default noteBtn">Article notes</button>
+                    </div>
+                </div>
+                <!--/.Post excerpt-->
+            </div>
+            <hr> {{/each}}
+        <!--/.First row-->
+    </div>
+    <hr class="extra-margin">
+    </div>
+    <!--/.Main layout-->
+</main>
