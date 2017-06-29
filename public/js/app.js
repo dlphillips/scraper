@@ -15,11 +15,9 @@ $(".noteBtn").click(function() {
         .done(function(data) {
             console.log(data);
             $("#notes").append("<div class='modal-header'><h4 class='modal-title'>" + data.title + "</h4></div>");
-            $("#notes").append("<div class='modal-body'><input id='titleinput' name='title' placeholder='Comment title'><textarea id='bodyinput' name='body' placeholder='Enter comment here'></textarea></div>");
+            $("#notes").append("<div class='modal-body'><textarea id='bodyinput' name='body' placeholder='Enter comment here'></textarea></div>");
             $("#notes").append("<div class='modal-footer'><button class='btn btn-primary' data-id='" + data._id + "' id='savenote'>Save Comment</button></div>");
             if (data.note) {
-                // Place the title of the note in the title input
-                $("#titleinput").val(data.note.title);
                 // Place the body of the note in the body textarea
                 $("#bodyinput").val(data.note.body);
             }
@@ -37,8 +35,6 @@ $(document).on("click", "#savenote", function() {
             method: "POST",
             url: "/articles/" + thisId,
             data: {
-                // Value taken from title input
-                title: $("#titleinput").val(),
                 // Value taken from note textarea
                 body: $("#bodyinput").val()
             }
@@ -52,7 +48,6 @@ $(document).on("click", "#savenote", function() {
         });
 
     // Also, remove the values entered in the input and textarea for note entry
-    $("#titleinput").val("");
     $("#bodyinput").val("");
     $("#myModal").modal('hide');
 });

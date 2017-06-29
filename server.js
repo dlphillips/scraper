@@ -1,7 +1,3 @@
-/* Showing Mongoose's "Populated" Method (18.3.8)
- * INSTRUCTOR ONLY
- * =============================================== */
-
 // Dependencies
 var express = require("express");
 var bodyParser = require("body-parser");
@@ -51,7 +47,6 @@ db.once("open", function() {
     console.log("Mongoose connection successful.");
 });
 
-
 // Routes
 // ======
 
@@ -70,9 +65,7 @@ app.get("/", function(req, res) {
 });
 
 // A GET request to scrape the echojs website
-app.get("/scrape", function(req, res) {
-    // First, we grab the body of the html with request
-    // request("http://www.echojs.com/", function(error, response, html) {
+app.get("/scrape", function(req, res ){
     request("http://www.npr.org/", function(error, response, html) {
         // Then, we load that into cheerio and save it to $ for a shorthand selector
         var $ = cheerio.load(html);
@@ -104,26 +97,11 @@ app.get("/scrape", function(req, res) {
                     console.log(doc);
                 }
             });
-
         });
     });
     // Tell the browser that we finished scraping the text
-    res.send("Scrape Complete");
-});
-
-// This will get the articles we scraped from the mongoDB and render to handlebars
-app.get("/articles", function(req, res) {
-    // Grab every doc in the Articles array
-    Article.find({}, function(error, doc) {
-        // Log any errors
-        if (error) {
-            console.log(error);
-        }
-        // Or send the doc to the browser as a json object
-        else {
-            res.render("index", { articles: doc });
-        }
-    });
+    res.render("scraped");
+    // res.send("Scrape Complete");
 });
 
 // Grab an article by it's ObjectId
@@ -144,7 +122,6 @@ app.get("/articles/:id", function(req, res) {
             }
         });
 });
-
 
 // Create a new note or replace an existing note
 app.post("/articles/:id", function(req, res) {
